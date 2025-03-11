@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import Taskrouter from "./routes/Task.route.js";
 
 dotenv.config();
 
@@ -15,6 +16,10 @@ app.use(
     origin: "http://localhost:5173",
   })
 );
+
+//routes
+
+app.use("api/task", Taskrouter);
 
 mongoose
   .connect(process.env.MONGO_URI)
