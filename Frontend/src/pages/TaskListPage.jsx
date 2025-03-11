@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Badge from "../components/Badge";
-import { Link } from "react-router-dom";
 import Task from "../components/Task";
 import { showToast } from "../helper/showToast";
 const TaskListPage = () => {
