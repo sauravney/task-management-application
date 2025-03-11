@@ -1,11 +1,9 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import TaskListPage from "./pages/TaskListPage";
 import ShowTask from "./pages/ShowTask";
-
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,6 +15,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

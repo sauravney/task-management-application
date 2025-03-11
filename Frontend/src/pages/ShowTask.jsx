@@ -27,7 +27,7 @@ const ShowTask = () => {
   useEffect(() => {
     const getTask = async () => {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/task/show-task/${taskid}`
+        `${import.meta.env.VITE_API_BASE_URL}/show-task/${taskid}`
       );
       const responseData = await response.json();
       setApiData(responseData);
@@ -41,7 +41,7 @@ const ShowTask = () => {
     try {
       const validatedData = taskSchema.parse(formData);
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/task/update-task/${taskid}`,
+        `${import.meta.env.VITE_API_BASE_URL}/update-task/${taskid}`,
         {
           method: "PUT",
           headers: { "Content-type": "application/json" },

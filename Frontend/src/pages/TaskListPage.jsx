@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Badge from "../components/Badge";
+import { Link } from "react-router-dom";
 import Task from "../components/Task";
 import { showToast } from "../helper/showToast";
 const TaskListPage = () => {
@@ -8,7 +10,7 @@ const TaskListPage = () => {
     setReferesh(false);
     const getTask = async () => {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/task/get-all-task`
+        `${import.meta.env.VITE_API_BASE_URL}/tasks`
       );
       const responseData = await response.json();
       setTasks(responseData);
@@ -19,7 +21,7 @@ const TaskListPage = () => {
   const deleteTask = async (taskid) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/task/delete-task/${taskid}`,
+        `${import.meta.env.VITE_API_BASE_URL}/tasks/${taskid}`,
         {
           method: "DELETE",
         }

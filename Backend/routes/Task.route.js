@@ -9,10 +9,10 @@ import {
 
 const Taskrouter = express.Router();
 
-Taskrouter.post("/create-task", createTask);
-Taskrouter.get("/get-all-task", getAllTask);
+Taskrouter.post("/tasks", createTask);
+Taskrouter.get("/tasks", getAllTask);
 Taskrouter.get("/show-task/:taskid", showTask);
 Taskrouter.put("/update-task/:taskid", updateTask);
-Taskrouter.delete("/delete-task/:taskid", deleteTask);
+Taskrouter.delete("/tasks/:taskid", deleteTask);
 
 export default Taskrouter;

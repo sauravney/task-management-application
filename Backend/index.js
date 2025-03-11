@@ -6,7 +6,7 @@ import Taskrouter from "./routes/Task.route.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -17,19 +17,17 @@ app.use(
   })
 );
 
-//routes
+// routes
 
-app.use("api/task", Taskrouter);
+app.use("/", Taskrouter);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGODB_CONN)
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Database connected.");
   })
-  .catch((error) => {
-    console.log(error);
-  });
+  .catch((err) => console.log("Database connection failed.", err));
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log("Server running on port:", PORT);
 });
